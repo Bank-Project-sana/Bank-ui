@@ -1,0 +1,7 @@
+.nav-link.active{
+background-color:#ea001f;
+}
+.nav-link{
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+}

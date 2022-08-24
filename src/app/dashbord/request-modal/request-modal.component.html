@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="modal-header">
+     <h4 class="modal-title pull-center">Add transaction</h4>
+     <button type="button" class="close pull-right" aria-label="Close" (click)="modalService.hide()">
+     <span aria-hidden="true">&times;</span>
+     </button>
+  </div>
+  <div class="modal-body">
+     <form [formGroup]="addForm" >
+     
+     <div class="row form-row">
+        <div class="col-md-6">
+           <label class ="formLabel" for="RequestType"> Type
+           </label>
+        </div>
+        <div class="col-md-6">
+           <select class="form-control input-medium" name="type" formControlName="RequestType"  >
+           <option [ngValue]="type"  *ngFor="let type of typesList">
+           {{type}}
+           </option>
+           </select>
+        </div>
+     </div>
+     <div class="row form-row" >
+        <div class="col-md-6">
+           <label class="formLabel" for="amount"> Amount
+           </label>
+        </div>
+        <div class="col-md-6">
+           <input  class="formInput" id="amount" type="number" formControlName ="amount">
+        </div>
+     </div>
+    
+     </form>
+  </div>
+  <div class="modal-footer">
+     <button type="submit" class="Submit" (click)="onSubmit()">Submit</button>
+  </div>
+</div>

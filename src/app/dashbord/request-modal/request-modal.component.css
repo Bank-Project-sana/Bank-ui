@@ -1,0 +1,11 @@
+.form-row{
+    margin: 5%;
+}
+.formInput{
+    
+    color: #141414;
+}
+input[type="text"]:disabled {
+    background: #747474
+    ;
+  }

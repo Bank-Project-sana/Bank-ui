@@ -1,0 +1,33 @@
+<div class=" row" >
+  <div class="col-md-8">
+    
+  </div>
+  <div class="col-md-4 ">
+    <button  class="btn btn-dark" (click)="showAddForm()" >Make new Operation</button>
+  
+  </div>
+
+
+</div>
+
+<div class="container">
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Operation</th>
+      <th scope="col">Date</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Balance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of operationList">
+      <th scope="row">{{p.type | lowercase }}</th>
+      <td>{{p.date | date:"dd/MM/yyyy HH:mm"}}</td>
+      <td>{{p.amount}}</td>
+      <td>{{p.balance}}</td>
+    </tr>
+   
+  </tbody>
+</table>
+</div>

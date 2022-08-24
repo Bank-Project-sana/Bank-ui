@@ -1,0 +1,11 @@
+.container{
+    margin:1%;
+}
+.table {
+    width: 90%;
+    font-family: 'Times New Roman', Times, serif;
+}
+.th{
+    color:#ea001f;
+    font-size: 12px;
+}
