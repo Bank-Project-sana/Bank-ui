@@ -1,5 +1,4 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Operation } from 'src/app/models/operation.model';
 import { OperationService } from 'src/app/services/operation.service';
@@ -17,27 +16,25 @@ export class HistoryTableComponent implements OnInit {
 
   modalRef: BsModalRef;
 
-  constructor(private router: Router,private modalService: BsModalService,private operationService : OperationService) {
-    
-  }
-  
+  constructor(
+    private modalService: BsModalService,
+    private operationService: OperationService) { }
 
-  ngOnInit() {
+    ngOnInit() {
+      this.fetchOperationDataFromApi();
+    }
+  fetchOperationDataFromApi() {
     this.operationService.getAllOperationByClientAccountId(1).subscribe(
       (data) => {
         this.operationList = data;
-      })
-      
-    }
-     
+      });
+  }
 
-  
   showAddForm() {
     this.modalRef = this.modalService.show(RequestModalComponent);
-    
-  }
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
+    this.modalRef.onHide.subscribe(() => {
+      this.fetchOperationDataFromApi();
+    });
   }
 
 }

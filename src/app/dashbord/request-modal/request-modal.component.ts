@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Output} from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { AccountModel } from 'src/app/models/account.model';
@@ -32,7 +32,7 @@ export class RequestModalComponent implements OnInit {
   onSubmit() {
  
   this.operationService.saveOperation(this.prepareModelTOSave()).subscribe((data)=>{
-    
+
   },(err)=>{
     console.error(err+"error to save");
   },()=>{
@@ -45,7 +45,7 @@ export class RequestModalComponent implements OnInit {
    let operationTOsave ={
     amount:this.addForm.value.amount,
     type: this.addForm.value.RequestType,
-    date: this.datePipe.transform(new Date(), 'hh:mm a yyyy-MM-dd').toString(),
+    date: this.datePipe.transform(new Date(), 'HH:mm  yyyy-MM-dd').toString(),
     balance:null,
     account: account
     
