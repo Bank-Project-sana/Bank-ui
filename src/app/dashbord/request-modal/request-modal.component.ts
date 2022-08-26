@@ -45,7 +45,7 @@ export class RequestModalComponent implements OnInit {
    let operationTOsave ={
     amount:this.addForm.value.amount,
     type: this.addForm.value.RequestType,
-    date: this.datePipe.transform(new Date(), 'hh:mm yyyy-MM-dd').toString(),
+    date: this.datePipe.transform(new Date(), 'hh:mm a yyyy-MM-dd').toString(),
     balance:null,
     account: account
     
